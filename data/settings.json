@@ -18,7 +18,7 @@
             "ThreadRunnerSleep": [2, 3],
             "RetriesLimit": 4,
             "Provider": "argent",
-            "MaxFee": 1,
+            "MaxFee": 2,
         "========= END =========": ""
         
     
