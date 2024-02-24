@@ -2,7 +2,7 @@ from asyncio import Event, sleep
 from random import choice
 
 from modules.utils.account import Account
-from modules.other.delegator import Claimer
+from modules.other.delegator import Delegator
 from modules.utils.logger import logger
 from modules.utils.utils import get_pair_for_address_from_file
 from modules.config import SETTINGS
@@ -19,6 +19,6 @@ class MainRouter():
     async def start(self, gas_lock: Event = None, one_thread_lock: Event = None):
         await self.account.setup_account()
         if self.task_number == 1:
-            claimer = Claimer()
-            await claimer.handle(self.account)
+            delegator = Delegator()
+            await delegator.get_lock_and_delegate_txn(self.account)
     
