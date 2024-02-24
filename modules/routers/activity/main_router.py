@@ -2,7 +2,7 @@ from asyncio import Event, sleep
 from random import choice
 
 from modules.utils.account import Account
-from modules.other.strk_claimer import Claimer
+from modules.other.delegator import Claimer
 from modules.utils.logger import logger
 from modules.utils.utils import get_pair_for_address_from_file
 from modules.config import SETTINGS
