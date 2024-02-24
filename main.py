@@ -64,9 +64,9 @@ try:
                 addresses[i] = "0x" + "0"*(66-len(addresses[i])) + addresses[i][2::]
         if 0:
             pass
-        else:    
-            private_keys = decode_secrets()
-            accounts, counter = transform_keys(private_keys, addresses)
+        else:
+            with open(f"{SETTINGS_PATH}secrets.txt", "r") as f:
+                accounts = f.read().split("\n")
             with open(f"{SETTINGS_PATH}wallets_data.ser", "wb") as f:
                 f.write(pickle.dumps(PUBLIC_KEYS_PAIRS))
             print(f"Soft found {counter} keys to work")
@@ -105,6 +105,8 @@ try:
 
                     addresses = proxy_dict[proxy]
                     for key in accounts:
+                        if key == "":
+                            continue
                         address =  Account.get_starknet_address_from_private(key)
                         
                         if address in addresses:
@@ -117,6 +119,8 @@ try:
 
                 delay = 0
                 for account in accounts:
+                    if account == "":
+                        continue
                     tasks.append(loop.create_task(MainRouter(account, delay, task_number).start(gas_lock=gas_lock, one_thread_lock=one_thread_lock)))
                     delay += 0
 
