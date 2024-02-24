@@ -12,7 +12,6 @@
         "===== SOFT MODE ===== ": "",
             "useProxies": false,
             "amount": 30,
-            "tip": 0,
             "lock": true,
             "delegate": true,
             "ErrorSleepeng": [2, 3],
