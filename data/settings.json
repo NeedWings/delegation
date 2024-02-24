@@ -10,7 +10,8 @@
             "DecryptType" : "Password", 
         
         "===== SOFT MODE ===== ": "",
-            "useProxies": true,
+            "useProxies": false,
+            "amount": 30,
             "tip": 0,
             "lock": true,
             "delegate": true,

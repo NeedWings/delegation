@@ -119,7 +119,6 @@ try:
                 for account in accounts:
                     tasks.append(loop.create_task(MainRouter(account, delay, task_number).start(gas_lock=gas_lock, one_thread_lock=one_thread_lock)))
                     delay += 0
-            #tasks.append(loop.create_task(gas_locker(gas_lock=gas_lock)))
 
             loop.run_until_complete(asyncio.wait(tasks, return_when=asyncio.ALL_COMPLETED))
 

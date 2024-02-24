@@ -5,7 +5,7 @@ from starknet_py.net.client_models import Call
 from starknet_py.hash.selector import get_selector_from_name
 
 from modules.base_classes.base_account import BaseAccount
-from modules.config import SETTINGS_PATH, SETTINGS, STRK_DATA
+from modules.config import SETTINGS_PATH, SETTINGS 
 from modules.utils.utils import sleeping, get_pair_for_address_from_file
 from modules.utils.logger import logger
 
@@ -41,13 +41,13 @@ class Delegator:
         delegate = SETTINGS["delegate"]
         amount = SETTINGS["amount"]
         if lock and delegate:
-            call1 = self.get_lock_call(amount)
+            call1 = self.get_lock_call(amount, sender)
             call2 = self.get_delegate_call()
             await sender.send_txn_starknet([call1, call2])
     
             return
         if lock:
-            call1 = self.get_lock_call(amount)
+            call1 = self.get_lock_call(amount, sender)
             await sender.send_txn_starknet([call1])
             return
         if delegate:

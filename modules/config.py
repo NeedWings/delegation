@@ -31,10 +31,6 @@ except Exception as e:
     input("Error with settings.json")
     exit()
 
-STRK_DATA = []
-for i in range(11):
-    STRK_DATA += json.load(open(f"{SETTINGS_PATH}starknet/starknet-{i}.json"))["eligibles"]
-
 
 RPC_LIST = SETTINGS["RPC"]
 
